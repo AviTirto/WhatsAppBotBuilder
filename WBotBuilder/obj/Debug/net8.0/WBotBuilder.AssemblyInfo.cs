@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WBotBuilder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6bb9ad8057b9ee0d971480fbf8ae9a221cc7799f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35a1184d91fceef0e667f473909cb5fc4fe306bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("WBotBuilder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WBotBuilder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

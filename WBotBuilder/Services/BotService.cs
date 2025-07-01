@@ -12,88 +12,37 @@ namespace WBotBuilder.Services
             _store = store;
         }
 
-        public Bot CreateBot(string name)
+        public List<Bot> GetAllBots()
         {
-            var bot = new Bot
-            {
-                Id = Guid.NewGuid(),
-                Name = name
-            };
+            return _store.GetAllBots();
+        }
 
+        public Bot? GetBot(Guid botId)
+        {
+            return _store.GetBot(botId);
+        }
+
+        public Bot AddBot(Bot bot)
+        {
             _store.AddBot(bot);
             return bot;
         }
 
-        public bool AddIntent(Guid botId, Intent intent)
+        public bool UpdateBot(Guid botId, Bot updatedBot)
         {
-            var bot = _store.GetBot(botId);
-            if (bot == null) return false;
+            var existing = _store.GetBot(botId);
+            if (existing == null) return false;
 
-            intent.Id = Guid.NewGuid();
-            bot.Intents.Add(intent);
+            updatedBot.Id = botId;
+            _store.ReplaceBot(botId, updatedBot);
             return true;
         }
 
-        public bool UpdateIntent(Guid botId, Intent updated)
+        public bool DeleteBot(Guid botId)
         {
-            var bot = _store.GetBot(botId);
-            if (bot == null) return false;
-
-            var idx = bot.Intents.FindIndex(i => i.Id == updated.Id);
-            if (idx == -1) return false;
-
-            bot.Intents[idx] = updated;
-            return true;
+            return _store.RemoveBot(botId);
         }
 
-        public bool DeleteIntent(Guid botId, Guid intentId)
-        {
-            var bot = _store.GetBot(botId);
-            if (bot == null) return false;
-
-            bot.Intents.RemoveAll(i => i.Id == intentId);
-            return true;
-        }
-
-        public bool AddTrait(Guid botId, Guid intentId, Trait trait)
-        {
-            var bot = _store.GetBot(botId);
-            if (bot == null) return false;
-
-            var intent = bot.Intents.FirstOrDefault(i => i.Id == intentId);
-            if (intent == null) return false;
-
-            trait.Id = Guid.NewGuid();
-            intent.Traits.Add(trait);
-            return true;
-        }
-
-        public bool UpdateTrait(Guid botId, Guid intentId, Trait updated)
-        {
-            var bot = _store.GetBot(botId);
-            if (bot == null) return false;
-
-            var intent = bot.Intents.FirstOrDefault(i => i.Id == intentId);
-            if (intent == null) return false;
-
-            var idx = intent.Traits.FindIndex(t => t.Id == updated.Id);
-            if (idx == -1) return false;
-
-            intent.Traits[idx] = updated;
-            return true;
-        }
-
-        public bool DeleteTrait(Guid botId, Guid intentId, Guid traitId)
-        {
-            var bot = _store.GetBot(botId);
-            if (bot == null) return false;
-
-            var intent = bot.Intents.FirstOrDefault(i => i.Id == intentId);
-            if (intent == null) return false;
-
-            intent.Traits.RemoveAll(t => t.Id == traitId);
-            return true;
-        }
         public string GenerateIndexJs(Guid botId)
         {
             var bot = _store.GetBot(botId);

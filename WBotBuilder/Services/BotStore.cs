@@ -12,6 +12,18 @@ namespace WBotBuilder.Services
 
         public void AddBot(Bot bot) => _bots.Add(bot);
 
-        public void RemoveBot(Guid botId) => _bots.RemoveAll(b => b.Id == botId);
+        public bool RemoveBot(Guid botId)
+        {
+            return _bots.RemoveAll(b => b.Id == botId) > 0;
+        }
+
+        public void ReplaceBot(Guid botId, Bot updatedBot)
+        {
+            var index = _bots.FindIndex(b => b.Id == botId);
+            if (index >= 0)
+            {
+                _bots[index] = updatedBot;
+            }
+        }
     }
 }

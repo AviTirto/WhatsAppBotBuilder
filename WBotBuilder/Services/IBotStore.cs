@@ -4,9 +4,10 @@ namespace WBotBuilder.Services
 {
     public interface IBotStore
     {
-        public List<Bot> GetAllBots();
-        public Bot? GetBot(Guid botId);
-        public void AddBot(Bot bot);
-        public void RemoveBot(Guid botId);
+        List<Bot> GetAllBots();
+        Bot? GetBot(Guid botId);
+        void AddBot(Bot bot);
+        bool RemoveBot(Guid botId);
+        void ReplaceBot(Guid botId, Bot updatedBot);
     }
 }
