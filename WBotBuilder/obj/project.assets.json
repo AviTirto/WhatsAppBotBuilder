@@ -487,11 +487,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/avitirto/Documents/AppDev/BotBuilder/WBotBuilder/WBotBuilder.csproj",
+      "projectUniqueName": "/Users/avitirto/Documents/AppDev/BotBuilder/WhatsAppBotBuilder/WBotBuilder/WBotBuilder.csproj",
       "projectName": "WBotBuilder",
-      "projectPath": "/Users/avitirto/Documents/AppDev/BotBuilder/WBotBuilder/WBotBuilder.csproj",
+      "projectPath": "/Users/avitirto/Documents/AppDev/BotBuilder/WhatsAppBotBuilder/WBotBuilder/WBotBuilder.csproj",
       "packagesPath": "/Users/avitirto/.nuget/packages/",
-      "outputPath": "/Users/avitirto/Documents/AppDev/BotBuilder/WBotBuilder/obj/",
+      "outputPath": "/Users/avitirto/Documents/AppDev/BotBuilder/WhatsAppBotBuilder/WBotBuilder/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/avitirto/.nuget/NuGet/NuGet.Config"
